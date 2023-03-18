@@ -10,7 +10,7 @@ import { ThemeApp } from './theme/ThemeApp';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/AldrosHouseApp">
       <Provider store={ store }>
         <ThemeApp>
           <RoutesApp />
