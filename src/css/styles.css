@@ -1,0 +1,123 @@
+/*<HEADER>*/
+.navLink {
+    color: #D9D9D9;
+    text-decoration: none;
+}
+.navLink:hover {
+    color: #888888;
+}
+/*</HEADER>*/
+
+/*<SEARCHPAGE>*/
+.gridForm {
+    display: flex;
+    width: 100%;
+}
+.formSearch {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.inputTextForm {
+    border: 2px solid #000040;
+    background-color: #D9D9D9;
+    color: #888888;
+    padding: 15px;
+    width: 50%;
+    font-weight: 700;
+    border-radius: 3px;
+}
+.inputSubmitForm {
+    border: none;
+    background-color: #000040;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    font-weight: 700;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.inputSubmitForm:hover {
+    background-color: #888888;
+    color: #000040;
+}
+/*</SEARCHPAGE>*/
+
+/* <POPUP> */
+body.active-popUp {
+    overflow-y: hidden;
+}
+.buttonPopUp {
+    padding: 5px 10px;
+    display: block;
+    margin: 10px auto;
+    font-size: 18px;
+}
+.popUp, .overlayPopUp {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+.overlayPopUp {
+    background: rgba(49,49,49,0.8);
+}
+.popUpContent {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+}
+.closePopUp {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    color: white;
+    font-weight: 700;
+    background-color: red;
+    border: 0;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.closePopUp:hover {
+    background-color: darkred;
+}
+.formDescription {
+    display: flex;
+    flex-direction: column;
+}
+/* </POPUP> */
+
+/* <FavouritesPage> */
+.photoIMG {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.saveButton, .downloadButton, .buttonPopUp {
+    border: none;
+    background-color: #000040;
+    color: #FFFFFF;
+    padding: 10px 10px;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 10px;
+}
+.selectFilter {
+    font-size: 20px;
+}
+/* <FavouritesPage> */
