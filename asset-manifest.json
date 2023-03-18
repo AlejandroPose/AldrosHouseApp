@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/AldrosHouseApp/static/css/main.5e596476.css",
-    "main.js": "/AldrosHouseApp/static/js/main.b783f38b.js",
+    "main.js": "/AldrosHouseApp/static/js/main.29ae4d2a.js",
     "index.html": "/AldrosHouseApp/index.html",
     "main.5e596476.css.map": "/AldrosHouseApp/static/css/main.5e596476.css.map",
-    "main.b783f38b.js.map": "/AldrosHouseApp/static/js/main.b783f38b.js.map"
+    "main.29ae4d2a.js.map": "/AldrosHouseApp/static/js/main.29ae4d2a.js.map"
   },
   "entrypoints": [
     "static/css/main.5e596476.css",
-    "static/js/main.b783f38b.js"
+    "static/js/main.29ae4d2a.js"
   ]
 }
