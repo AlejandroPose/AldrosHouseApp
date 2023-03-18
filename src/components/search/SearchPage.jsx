@@ -1,7 +1,7 @@
 import { Toolbar } from "@mui/material";
-import { Header } from "./Header";
-import { SearchPhotos } from "./SearchPhotos";
+import { Header } from "../Header";
 import { SearchForm } from "./SearchForm";
+import { SearchPhotos } from "./SearchPhotos";
 
 export const SearchPage = () => {
 

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import getPhotos from "./getPhotos";
+import getPhotos from "../../../services/getPhotos";
 
 export const getSearch = createAsyncThunk(
     'search/getPhotos', 

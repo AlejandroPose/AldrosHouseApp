@@ -1,21 +1,20 @@
 import { Grid, Toolbar, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { useFavourites } from "../hooks/useFavourites";
-import { Header } from "./Header";
+import { useFavourites } from "../../hooks/useFavourites";
+import { Header } from "../Header";
 import { saveAs } from "file-saver";
 import { FavouritesForm } from "./FavouritesForm";
-import { updateState } from "../store/features/myphotos/favouritesSlice";
+import { updateState } from "../../store/features/myphotos/favouritesSlice";
 import { FavouritesPopUp } from "./FavouritesPopUp";
+import { useState } from "react";
 
 export const FavouritesPage = () => {
 
   const myphotos = useSelector( state => state.myphotos.list );
+  const [ isVisible, setIsVisible ] = useState( false );
+  const [ selectedPhoto, setSelectedPhoto ] = useState( null );
   const { isFavourite, onSave } = useFavourites();
   const dispatch = useDispatch();
-
-  const onDownload = ( url ) => {
-    saveAs( url );
-  };
 
   const onFilterChange = (event) => {
       const filterValue = event.target.value;
@@ -89,6 +88,16 @@ export const FavouritesPage = () => {
       }
   };
 
+  const closeModal = () => {
+      setIsVisible( false );
+      setSelectedPhoto(null)
+  };
+
+  const editPhoto = (photo) => {
+    setSelectedPhoto(photo)
+    setIsVisible(true)
+  }
+
   return (
     <>
     <Header />
@@ -120,7 +129,9 @@ export const FavouritesPage = () => {
                       <Typography variant="p">Likes: { photo.likes }</Typography><br />
                       <Typography variant="p">Date: { photo.date }</Typography><br />
                       <Typography variant="p">Description: { photo.description }</Typography><br />
-                      <FavouritesPopUp photo={ photo } />
+                      <button className="buttonPopUp" onClick={ () => editPhoto(photo) }>
+                          EDIT DESCRIPTION
+                      </button>
                     </Grid>
                     <Grid item className="imageButtons" display="flex" justifyContent="center" alignItems="center" gap="10px">
                       <button className="saveButton" onClick={ () => onSave( photo, favourite ) }>
@@ -128,12 +139,13 @@ export const FavouritesPage = () => {
                         favourite ? "UNLIKE" : "LIKE"
                         }
                       </button>
-                      <button className="downloadButton" onClick={ () => onDownload( photo.urlFull ) }>DOWNLOAD</button>
+                      <button className="downloadButton" onClick={ () => saveAs( photo.urlFull ) }>DOWNLOAD</button>
                     </Grid>
                   </Grid>
                 )
               })
             }
+            <FavouritesPopUp photo={ selectedPhoto } closeModal={closeModal} isVisible={isVisible} />
         </Grid>
     </>
       ) : (

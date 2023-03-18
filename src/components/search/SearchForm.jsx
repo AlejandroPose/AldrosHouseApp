@@ -1,15 +1,24 @@
 import { Grid, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { filterState } from "../store/features/myphotos/favouritesSlice";
+import { getSearch } from "../../store/features/search/searchSlice";
 
-export const FavouritesForm = ({ title, text }) => {
+export const SearchForm = ({ title, text }) => {
 
+    const [query, setQuery] = useState( '' );
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch( getSearch(query) );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [query]);
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        const inputValue = event.target[0].value.trim();
-        dispatch( filterState(inputValue) );
+        const inputValue = event.target[0].value;
+        if ( inputValue.trim() !== query ) {
+          setQuery(inputValue);
+        }
     };
 
   return (

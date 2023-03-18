@@ -1,17 +1,17 @@
 import { Grid } from "@mui/material";
 import { saveAs } from "file-saver";
 import { useSelector } from "react-redux";
-import { useFavourites } from "../hooks/useFavourites";
+import { useFavourites } from "../../hooks/useFavourites";
 
 export const SearchPhotos = () => {
 
-    const search = useSelector( state => state.search );
+  const search = useSelector( state => state.search );
 
-    const { isFavourite, onSave } = useFavourites();
-  
-    const onDownload = ( url ) => {
-        saveAs( url );
-    };
+  const { isFavourite, onSave } = useFavourites();
+
+  if( search.isLoading) {
+    return 'Loading...'
+  }
 
   return (
     <Grid container gap={5} padding="40px" alignItems="center" justifyContent="center">
@@ -27,7 +27,7 @@ export const SearchPhotos = () => {
                     favourite ? "UNLIKE" : "LIKE"
                     }
                   </button>
-                  <button className="downloadButton" onClick={ () => onDownload( photo.urlFull ) }>DOWNLOAD</button>
+                  <button className="downloadButton" onClick={ () => saveAs( photo.urlFull ) }>DOWNLOAD</button>
                 </Grid>
               </Grid>
             )
