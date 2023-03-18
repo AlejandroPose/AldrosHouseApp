@@ -6,9 +6,9 @@ export const RoutesApp = () => {
 
   return (
     <Routes>
-        <Route path="/" element={ <SearchPage /> } />
-        <Route path="/my-photos" element={ <FavouritesPage /> } />
-        <Route path="/*" element={ <SearchPage /> } />
+        <Route path="/AldrosHouseApp/" element={ <SearchPage /> } />
+        <Route path="/AldrosHouseApp/my-photos" element={ <FavouritesPage /> } />
+        <Route path="/AldrosHouseApp/*" element={ <SearchPage /> } />
     </Routes>
   );
 
